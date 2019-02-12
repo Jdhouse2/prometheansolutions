@@ -1,6 +1,6 @@
 const constants = {
     nav: {
-        'Home': 'home',
+        'Home': 'Homepage',
         'About': 'about',
         'Log In': 'EATLogon',
         'Sign Up': 'signup',
