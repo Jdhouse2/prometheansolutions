@@ -128,12 +128,13 @@ namespace accountmanager
 			//Keeps everything simple.
 
 			//WE ONLY SHARE ACCOUNTS WITH LOGGED IN USERS!
-			if (Session["id"] != null)
+			//if (Session["id"] != null)
+            if(true)
 			{
 				DataTable sqlDt = new DataTable("accounts");
 
 				string sqlConnectString = System.Configuration.ConfigurationManager.ConnectionStrings["myDB"].ConnectionString;
-				string sqlSelect = "select id, userid, pass, firstname, lastname, email from account where active=1 order by lastname";
+				string sqlSelect = "select id, username, password, firstname, lastname, email from user";
 
 				MySqlConnection sqlConnection = new MySqlConnection(sqlConnectString);
 				MySqlCommand sqlCommand = new MySqlCommand(sqlSelect, sqlConnection);
@@ -150,19 +151,19 @@ namespace accountmanager
 				for (int i = 0; i < sqlDt.Rows.Count; i++)
 				{
 					//only share user id and pass info with admins!
-					if (Convert.ToInt32(Session["admin"]) == 1)
+					//if (Convert.ToInt32(Session["admin"]) == 1)
+                    if(true)
 					{
 						accounts.Add(new Account
 						{
 							id = Convert.ToInt32(sqlDt.Rows[i]["id"]),
-							userId = sqlDt.Rows[i]["userid"].ToString(),
-							password = sqlDt.Rows[i]["pass"].ToString(),
+							password = sqlDt.Rows[i]["password"].ToString(),
 							firstName = sqlDt.Rows[i]["firstname"].ToString(),
 							lastName = sqlDt.Rows[i]["lastname"].ToString(),
 							email = sqlDt.Rows[i]["email"].ToString()
 						});
 					}
-					else
+					/*else
 					{
 						accounts.Add(new Account
 						{
@@ -171,7 +172,7 @@ namespace accountmanager
 							lastName = sqlDt.Rows[i]["lastname"].ToString(),
 							email = sqlDt.Rows[i]["email"].ToString()
 						});
-					}
+					}*/
 				}
 				//convert the list of accounts to an array and return!
 				return accounts.ToArray();
