@@ -2,7 +2,7 @@
     width: 75vw;
     background-image: url('../assets/home-img-1.jpg');
     height: 97vh;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
