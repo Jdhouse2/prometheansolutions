@@ -11,7 +11,6 @@ namespace accountmanager
 		//to an account.  We'll simply create public class-level
 		//variables representing each piece of information!
 		public int id;
-		public string userId;
 		public string password;
 		public string firstName;
 		public string lastName;

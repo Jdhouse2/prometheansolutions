@@ -19,15 +19,16 @@
         </div>
         <script>
             init()
+			
+			let url = 'http://promethean.cis440.com/api/accountmananger/AccountServices.asmx/GetAccounts'
+
             $.ajax({
 				//post is more secure than get, and allows
 				//us to send big data if we want.  really just
 				//depends on the way the service you're talking to is set up, though
 				type: "POST",
 				//the url is set to the string we created above
-				url: webMethod,
-				//same with the data
-				data: parameters,
+				url,
 				//these next two key/value pairs say we intend to talk in JSON format
 				contentType: "application/json; charset=utf-8",
 				dataType: "json",
