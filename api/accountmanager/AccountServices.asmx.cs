@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
-using System.Web.Http.Cors;
+//using System.Web.Http.Cors;
 
 //we need these to talk to mysql
 using MySql.Data;
@@ -13,7 +13,7 @@ using System.Data;
 
 namespace accountmanager
 {
-    [EnableCors(origins: "http://promethean.cis440.com", headers: "*", methods: "*")]
+    //[EnableCors(origins: "http://promethean.cis440.com", headers: "*", methods: "*")]
     /// <summary>
     /// Summary description for AccountServices
     /// </summary>

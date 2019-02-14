@@ -10,7 +10,7 @@ namespace accountmanager
         public static void Register(HttpConfiguration config)
         {
 
-            config.EnableCors();
+            //config.EnableCors();
 
             // Web API configuration and services
 
