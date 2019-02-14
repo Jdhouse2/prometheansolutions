@@ -13,13 +13,18 @@ app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/app/home.html'));
 });
 
-app.get('/app/test-pull', function(req, res) {
-    res.send('hello!');
+app.get('/app/test-pull', function(req, res){
+    res.writeHead(200, { 'Content-Type': 'application/json' }); 
+    res.end(JSON.stringify(data));
+});
+
+//app.get('/app/test-pull', function(req, res) {
+    //res.send('hello!');
     // con.query("SELECT * FROM user", function (err, result, fields) {
     //     if (err) throw err;
     //     res.send(JSON.stringify(result))
     //   });
-});
+//});
 
 // app.post('/app/test-pull', function(req, res) {
 //     res.send('hello!');
