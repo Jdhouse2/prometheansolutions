@@ -13,6 +13,14 @@ app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/app/home.html'));
 });
 
+app.post('/app/test-pull', function(req, res) {
+    res.send('hello!');
+    // con.query("SELECT * FROM user", function (err, result, fields) {
+    //     if (err) throw err;
+    //     res.send(JSON.stringify(result))
+    //   });
+});
+
 // var con = mysql.createConnection({
 //   host: "70.32.28.7",
 //   user: "promethean",
@@ -50,12 +58,7 @@ app.get('/', function(req, res) {
 //     res.sendFile(path.join(__dirname + '/app/data-test.html'));
 // });
 
-// app.post('/test-pull', function(req, res) {
-//     con.query("SELECT * FROM user", function (err, result, fields) {
-//         if (err) throw err;
-//         res.send(JSON.stringify(result))
-//       });
-// });
+
 
 
 // app.listen(process.env.PORT, () => {
