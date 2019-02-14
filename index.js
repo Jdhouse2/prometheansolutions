@@ -5,10 +5,11 @@ const path = require('path');
 var http = require('http');
 var mysql = require('mysql');
 
-app.listen(process.env.PORT, () => {
-    console.log('Example app listening on port 8000!')
-  });
-  
+app.use(function(req, res) {
+    res.send(originalUrl);
+  })
+
+
 
 var con = mysql.createConnection({
   host: "70.32.28.7",
@@ -57,3 +58,9 @@ app.post('/test-pull', function(req, res) {
         res.send(JSON.stringify(result))
       });
 });
+
+
+app.listen(process.env.PORT, () => {
+    console.log('Example app listening on port 8000!')
+  });
+  
