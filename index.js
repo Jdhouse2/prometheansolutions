@@ -7,6 +7,10 @@ var mysql = require('mysql');
 
 http.createServer(app).listen(process.env.PORT);
 
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname + '/app/home.html'));
+});
+
 // var con = mysql.createConnection({
 //   host: "70.32.28.7",
 //   user: "promethean",
@@ -38,9 +42,7 @@ http.createServer(app).listen(process.env.PORT);
 //     });
 // });
 
-// app.get('/', function(req, res) {
-//     res.sendFile(path.join(__dirname + '/app/home.html'));
-// });
+
 
 // app.get('/app/data-test ', function(req, res) {
 //     res.sendFile(path.join(__dirname + '/app/data-test.html'));
