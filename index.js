@@ -46,7 +46,7 @@ app.get('/app/data-test ', function(req, res) {
     res.sendFile(path.join(__dirname + '/app/data-test.html'));
 });
 
-app.post('/test-pull', function(req, res) {
+app.post('http://promethean.cis440.com/test-pull', function(req, res) {
     con.query("SELECT * FROM user", function (err, result, fields) {
         if (err) throw err;
         res.send(JSON.stringify(result))
