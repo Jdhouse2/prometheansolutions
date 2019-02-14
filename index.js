@@ -74,7 +74,7 @@ app.get('/app/test-pull', function(req, res){
 
 
 
-// app.listen(process.env.PORT, () => {
-//     console.log('Example app listening on port 8000!')
-//   });
+app.listen('8000', () => {
+    console.log('Example app listening on port 8000!')
+  });
   
