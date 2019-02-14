@@ -28,13 +28,13 @@ app.use(function(req, res, next) {
   });
 
 
-// http.createServer(function (request, response) {
-//     response.writeHead(200, {
-//         'Content-Type': 'text/plain',
-//         'Access-Control-Allow-Origin' : '*',
-//         'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
-//     });
-// });
+http.createServer(function (request, response) {
+    response.writeHead(200, {
+        'Content-Type': 'text/plain',
+        'Access-Control-Allow-Origin' : '*',
+        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
+    });
+});
 
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/app/home.html'));
