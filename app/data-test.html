@@ -20,8 +20,6 @@
         </div>
         <script>
             init()
-			
-			let url = 'http://promethean.cis440.com/api/accountmananger/AccountServices.asmx/GetAccounts'
 
             $.ajax({
 				//post is more secure than get, and allows
@@ -29,7 +27,7 @@
 				//depends on the way the service you're talking to is set up, though
 				type: "POST",
 				//the url is set to the string we created above
-				url: 'http://promethean.cis440.com/test-pull',
+				url: '/test-pull',
 
 				//these next two key/value pairs say we intend to talk in JSON format
 				contentType: "application/json; charset=utf-8",
