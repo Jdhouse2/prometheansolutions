@@ -5,6 +5,8 @@ const path = require('path');
 var http = require('http');
 var mysql = require('mysql');
 
+app.use(express.static(__dirname));
+
 http.createServer(app).listen(process.env.PORT);
 
 app.get('/', function(req, res) {
@@ -24,7 +26,7 @@ app.get('/', function(req, res) {
 // });
 
 
-// app.use(express.static(__dirname));
+
 // app.use(cors());
 
 // app.use(function(req, res, next) {
