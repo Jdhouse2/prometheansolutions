@@ -5,6 +5,8 @@ const path = require('path');
 var http = require('http');
 var mysql = require('mysql');
 
+http.createServer(app).listen(process.env.PORT);
+
 // var con = mysql.createConnection({
 //   host: "70.32.28.7",
 //   user: "promethean",
