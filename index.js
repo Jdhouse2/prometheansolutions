@@ -15,7 +15,7 @@ app.get('/', function(req, res) {
 
 app.get('/app/test-pull', function(req, res){
     res.writeHead(200, { 'Content-Type': 'application/json' }); 
-    res.end(JSON.stringify(data));
+    res.end(JSON.stringify({'hello': 'World'}));
 });
 
 //app.get('/app/test-pull', function(req, res) {
