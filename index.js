@@ -18,8 +18,7 @@ con.connect(function(err) {
 });
 
 
-
-// app.use(express.static(__dirname));
+app.use(express.static(__dirname));
 app.use(cors());
 
 app.use(function(req, res, next) {
@@ -36,7 +35,6 @@ http.createServer(function (request, response) {
         'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
     });
 });
-
 
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/app/home.html'));
