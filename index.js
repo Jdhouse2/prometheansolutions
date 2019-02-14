@@ -19,30 +19,30 @@ con.connect(function(err) {
 
 
 app.use(express.static(__dirname));
-app.use(cors());
+// app.use(cors());
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+//   });
 
 
-http.createServer(function (request, response) {
-    response.writeHead(200, {
-        'Content-Type': 'text/plain',
-        'Access-Control-Allow-Origin' : '*',
-        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
-    });
-});
+// http.createServer(function (request, response) {
+//     response.writeHead(200, {
+//         'Content-Type': 'text/plain',
+//         'Access-Control-Allow-Origin' : '*',
+//         'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
+//     });
+// });
 
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/app/home.html'));
 });
 
-app.get('/app/data-test ', function(req, res) {
-    res.sendFile(path.join(__dirname + '/app/data-test.html'));
-});
+// app.get('/app/data-test ', function(req, res) {
+//     res.sendFile(path.join(__dirname + '/app/data-test.html'));
+// });
 
 app.post('/test-pull', function(req, res) {
     con.query("SELECT * FROM user", function (err, result, fields) {
