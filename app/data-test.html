@@ -5,12 +5,13 @@
         <meta charset='UTF-8'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Rent-A-Item</title>
-        <link rel='stylesheet' href='./css/nav.css' type='text/css'>
+         <link rel='stylesheet' href='./css/nav.css' type='text/css'>
         <link rel='stylesheet' href='./css/main.css' type='text/css'>
         <link rel='stylesheet' href='./css/home.css' type='text/css'>
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src='./js/main.js'></script>
+        
+		<script src='./js/main.js'></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
     <body>
         <div id='nav'></div>
@@ -28,7 +29,8 @@
 				//depends on the way the service you're talking to is set up, though
 				type: "POST",
 				//the url is set to the string we created above
-				url,
+				url: 'http://localhost:8000/test-pull',
+
 				//these next two key/value pairs say we intend to talk in JSON format
 				contentType: "application/json; charset=utf-8",
 				dataType: "json",
@@ -39,15 +41,9 @@
 					//since our logon web method simply returns a true/false, that value is mapped
 					//to a generic property of the server response called d (I assume short for data
 					//but honestly I don't know...)
-					if (msg.d) {
 						//server replied true, so show the accounts panel
-						console.log(web.d)
-					}
-					else {
-						//server replied false, so let the user know
-						//the logon failed
-						alert("logon failed");
-					}
+						console.log(msg)
+					
 				},
 				error: function (e) {
 					//if something goes wrong in the mechanics of delivering the
