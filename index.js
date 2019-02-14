@@ -5,12 +5,6 @@ const path = require('path');
 var http = require('http');
 var mysql = require('mysql');
 
-app.use(function(req, res) {
-    res.send(originalUrl);
-  })
-
-
-
 var con = mysql.createConnection({
   host: "70.32.28.7",
   user: "promethean",
