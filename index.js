@@ -4,54 +4,102 @@ var cors = require('cors')
 const path = require('path');
 var http = require('http');
 var mysql = require('mysql');
-
-var con = mysql.createConnection({
-  host: "70.32.28.7",
-  user: "promethean",
-  password: "!!Cis440",
-  database: 'prometheandb'
-});
-
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-});
-
-
+var bodyParser = require('body-parser')
 
 app.use(express.static(__dirname));
-app.use(cors());
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
+var con = mysql.createConnection({
+    host: "70.32.28.7",
+    user: "promethean",
+    password: "!!Cis440",
+    database: 'prometheandb'
   });
+  
 
+// parse application/json
+app.use(bodyParser.json())
 
-http.createServer(function (request, response) {
-    response.writeHead(200, {
-        'Content-Type': 'text/plain',
-        'Access-Control-Allow-Origin' : '*',
-        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
-    });
-});
-
-app.listen(8000, () => {
-  console.log('Example app listening on port 8000!')
-});
+// app.use(function (req, res) {
+//     res.setHeader('Content-Type', 'text/plain')
+//     res.write('you posted:\n')
+//     res.end(JSON.stringify(req.body, null, 2))
+//     next();
+//   })
+//http.createServer(app).listen(process.env.PORT);
 
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/app/home.html'));
 });
 
-app.get('/app/data-test ', function(req, res) {
-    res.sendFile(path.join(__dirname + '/app/data-test.html'));
-});
-
-app.post('/test-pull', function(req, res) {
+app.get('/app/test-pull', function(req, res) {
     con.query("SELECT * FROM user", function (err, result, fields) {
         if (err) throw err;
         res.send(JSON.stringify(result))
       });
 });
+
+app.post('/api/clear', function(req, res) {
+
+    con.query(`DELETE FROM user`, function (err, result, fields) {
+        if (err) throw err;
+        res.send({'success': 'true'})
+      });
+});
+
+app.get('/api/write-user', function(req, res) {
+
+    console.log(req.query)
+    let q = req.query
+    let queryString = `INSERT INTO USER VALUES (${q.id}, '${q.username}', '${q.pass ? q.pass : '1234'}', '${q.fn}', '${q.ln}', '${q.email}', ${q.zip}, ${q.active}, ${q.admin})`
+    console.log(queryString)
+    con.query(queryString, function (err, result, fields) {
+        if (err) throw err;
+        res.send({'success': 'true'})
+      });
+});
+// app.post('/app/test-pull', function(req, res) {
+//     res.send('hello!');
+    // con.query("SELECT * FROM user", function (err, result, fields) {
+    //     if (err) throw err;
+    //     res.send(JSON.stringify(result))
+    //   });
+//});
+
+
+// con.connect(function(err) {
+//   if (err) throw err;
+//   console.log("Connected!");
+// });
+
+
+
+// app.use(cors());
+
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+//   });
+
+
+// http.createServer(function (request, response) {
+//     response.writeHead(200, {
+//         'Content-Type': 'text/plain',
+//         'Access-Control-Allow-Origin' : '*',
+//         'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
+//     });
+// });
+
+
+
+// app.get('/app/data-test ', function(req, res) {
+//     res.sendFile(path.join(__dirname + '/app/data-test.html'));
+// });
+
+
+
+
+app.listen('8000', () => {
+    console.log('Example app listening on port 8000!')
+  });
+  

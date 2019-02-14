@@ -4,6 +4,7 @@ const constants = {
         'About': 'about',
         'Log In': 'EATLogon',
         'Sign Up': 'signup',
+        '(Temp) Create User': 'basic-create-user',
     },
     navElementClasses: [
         'nav-item',

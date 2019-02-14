@@ -64,3 +64,24 @@
     text-align: center;
     font-size: 1.2em;
 }
+
+.inputs {
+    width: 40vw;
+}
+
+#view {
+    width: 40vw;
+    margin: 20px;
+}
+
+.firstName {
+    padding: 20px;
+    flex: 1 0 50%;
+    border: 1px solid grey;
+}
+
+.lastname {
+    padding: 20px;
+    flex: 1 0 50%;
+    border: 1px solid grey;
+}
