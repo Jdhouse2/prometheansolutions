@@ -1,3 +1,13 @@
+
+/*EXAMPLE DATABASE FUNCTION
+app.get('/[insert route here]', function(req, res) {
+    con.query([insert query here], function (err, result, fields) {
+        if (err) throw err;
+        res.send(JSON.stringify(result))
+      });
+});
+*/
+
 const express = require('express')
 const app = express();
 var cors = require('cors')
@@ -57,6 +67,7 @@ app.get('/api/write-user', function(req, res) {
         res.send({'success': 'true'})
       });
 });
+
 // app.post('/app/test-pull', function(req, res) {
 //     res.send('hello!');
     // con.query("SELECT * FROM user", function (err, result, fields) {
