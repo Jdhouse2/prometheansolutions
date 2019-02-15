@@ -13,6 +13,7 @@
 
 ## How to contribute
 1. Nothing fancy here! Basically just pointing out that if you make changes to the index.js folder, they will only be reflected after stopping the server (`ctrl + c` inside your terminal) and restarting it (`node index.js`). HTML / CSS changes should only need a browser refresh.
+2. Communicating with the Database
     - File 1 - index.js:
         1. Create a new function
             * At the top of the index.js file, there is a commented out function under the heading Example Database Function. Feel free to copy and paste the function to the bottom of the page!
