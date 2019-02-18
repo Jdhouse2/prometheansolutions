@@ -2,9 +2,10 @@ const constants = {
     nav: {
         'Home': 'home',
         'About': 'about',
+        'Feed': 'feed',
         'Log In': 'EATLogon',
         'Sign Up': 'signup',
-        '(Temp) Create User': 'basic-create-user',
+
     },
     navElementClasses: [
         'nav-item',
