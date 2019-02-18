@@ -5,21 +5,18 @@
 	<script>
 		var itemName = "";
 		var description = "";
-		var picture = "";
 		var zipCode = 0;
 		var category = "";
 
 		function addItem(form) {
 			itemName = document.getElementById("itemName").value;
 			description = document.getElementById("description").value;
-			picture = document.getElementById("picture").files[0];
 			zipCode = document.getElementById("zipCode").value;
 			category = document.getElementById("category");
 			var catValue = category.options[category.selectedIndex].text;
 
 			console.log(itemName);
 			console.log(description);
-			console.log(picture);
 			console.log(zipCode);
 			console.log(catValue);
 		}
@@ -29,7 +26,6 @@
 	<form id="itemInput">
 		Name:<input id="itemName" type="text"> <br>
 		Description:<input id="description" type="text"> <br>
-		Picture:<input id="picture" type="file" accept="image/*"> <br>
 		ZipCode:<input id="zipCode" type="text"> <br>
 		Item Category:<select name="Categories" id="category">
 			<option value="Garden">Garden</option>
