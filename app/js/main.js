@@ -21,10 +21,6 @@ function checkAuth() {
         document.getElementById(addItemButton).style.display = "none";
         document.getElementById(createAccountButton).style.display = "block";
         // No not display log out or add items buttons
-        // log out button has id of logOutButton
-        // log in button has id of logInButton
-        // add items has id of addItemButton
-        // create account button has id of createAccountButton
     } else {
         document.getElementById(logOutButton).style.display = "block";
         document.getElementById(logInButton).style.display = "none";
@@ -97,4 +93,5 @@ function attachEventHandlers(){
 function init(){
     generateNavigationBar()
     attachEventHandlers()
+    checkAuth();
 }
