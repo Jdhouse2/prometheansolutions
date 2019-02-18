@@ -56,15 +56,23 @@ app.post('/api/clear', function(req, res) {
       });
 });
 
-app.get('/api/write-user', function(req, res) {
+app.get('/api/create-user', function(req, res) {
 
     console.log(req.query)
     let q = req.query
-    let queryString = `INSERT INTO USER VALUES (${q.id}, '${q.username}', '${q.pass ? q.pass : '1234'}', '${q.fn}', '${q.ln}', '${q.email}', ${q.zip}, ${q.active}, ${q.admin})`
+    let queryString = `INSERT INTO USER (username, password, firstname, lastname, email, zipcode, active, admin) VALUES ('${q.username}', '${q.password}', '${q.fName}', '${q.lName}', '${q.email}', ${q.zip}, 1, 0)`
     console.log(queryString)
     con.query(queryString, function (err, result, fields) {
         if (err) throw err;
         res.send({'success': 'true'})
+      });
+});
+
+app.get('/api/get-items', function(req, res) {
+
+    con.query('select * from item', function (err, result, fields) {
+        if (err) throw err;
+        res.send(result)
       });
 });
 
