@@ -76,6 +76,13 @@ app.get('/api/get-items', function(req, res) {
       });
 });
 
+app.get('/app/addAnItem', function(req, res) {
+    con.query('select item_name, item_category, item_zipcode, item_description from item', function (err, result, fields) {
+        if (err) throw err;
+        res.send(JSON.stringify(result))
+      });
+});
+
 // app.post('/app/test-pull', function(req, res) {
 //     res.send('hello!');
     // con.query("SELECT * FROM user", function (err, result, fields) {

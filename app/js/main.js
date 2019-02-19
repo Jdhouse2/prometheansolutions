@@ -5,7 +5,7 @@ const constants = {
         'Feed': 'feed',
         'Log In': 'EATLogon',
         'Sign Up': 'signup',
-
+        'Add Item': 'AddAnItem'
     },
     navElementClasses: [
         'nav-item',
