@@ -120,6 +120,11 @@
 
 .item-img {
     width: 10vw;
+    
+}
+
+.item-img-icon {
+    cursor: pointer;
 }
 
 .item-img img {
@@ -130,6 +135,10 @@
 
 .item-details {
     flex: 2 0 75%;
+}
+
+.item-detail-cell {
+    padding: 20px;
 }
 
 .dropdown-icon {
@@ -152,4 +161,13 @@
 
 .rotate {
     transform: rotate(180deg);
+}
+
+.item-header {
+    font-size: 2rem;
+    padding: 10px;
+}
+
+.hidden {
+    display: none;
 }
