@@ -76,6 +76,18 @@ app.get('/api/get-items', function(req, res) {
       });
 });
 
+app.get('/api/verify-user', function(req, res) {
+
+    console.log(req.query)
+    let q = req.query
+    let queryString = `SELECT * FROM USER WHERE username = '${q.username}' and password = '${q.password}`
+    console.log(queryString)
+    con.query(queryString, function (err, result, fields) {
+        if (err) throw err;
+        res.send({'success': 'true'})
+      });
+});
+
 // app.post('/app/test-pull', function(req, res) {
 //     res.send('hello!');
     // con.query("SELECT * FROM user", function (err, result, fields) {
