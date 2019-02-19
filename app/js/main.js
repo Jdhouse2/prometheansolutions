@@ -4,6 +4,7 @@ const constants = {
         'About': 'about',
         'Feed': 'feed',
         'Log In': 'EATLogon',
+        'Log Out': 'logout',
         'Sign Up': 'signup',
         'Add Item': 'AddAnItem'
     },
@@ -31,9 +32,9 @@ function checkAuth() {
 }
 
 // Function to store login information
-function storeLogin(ownerId)
+function storeLogin(username)
 {
-    localstorage.auth = ownerId;
+    localstorage.auth = username;
 }
 
 function generateFlexbox(){
@@ -93,5 +94,5 @@ function attachEventHandlers(){
 function init(){
     generateNavigationBar()
     attachEventHandlers()
-    checkAuth();
+    // checkAuth();
 }

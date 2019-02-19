@@ -76,10 +76,22 @@ app.get('/api/get-items', function(req, res) {
       });
 });
 
+
 app.get('/app/addAnItem', function(req, res) {
     con.query('select item_name, item_category, item_zipcode, item_description from item', function (err, result, fields) {
         if (err) throw err;
         res.send(JSON.stringify(result))
+app.get('/api/verify-user', function(req, res) {
+
+    console.log(req.query)
+    let q = req.query
+    console.log(q)
+    let queryString = `SELECT * FROM USER WHERE username = '${q.username}' and password = '${q.password}'`
+    console.log(queryString)
+    con.query(queryString, function (err, result, fields) {
+
+        if (err) throw err;
+        res.send(result)
       });
 });
 

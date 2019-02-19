@@ -1,10 +1,11 @@
 <!doctype html>
 <html>
   <head>
-    <title>Exchange-A-Thing</title>
+    <title>Rent-A-Item</title>
     <link rel='stylesheet' href='./css/nav.css' type='text/css'>
     <link rel='stylesheet' href='./css/login.css' type='text/css'>
     <link rel='stylesheet' href='./css/main.css' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <script src='./js/login.js'></script>
     <script src='./js/main.js'></script>
@@ -18,27 +19,57 @@
   <body>
     <div id='nav'></div>
     <div id='login-body'>
-      <form action="action_page.php">
 
-        <h1>Exchange-A-Thing</h1>
+        <h1>Rent-A-Item</h1>
         <div class="container">
           <label for="uname"><b>Username: </b></label>
-          <input type="text" placeholder="Enter Username" name="username" required><br><br>
+          <input type="text" placeholder="Enter Username" name="username" id='usernameValue'><br><br>
 
           <label for="psw"><b>Password: </b></label>
-          <input type="password" placeholder="Enter Password" name="password" required><br><br>
+          <input type="password" placeholder="Enter Password" name="password" id='passwordValue'><br><br>
 
-          <button type="submit">Login</button><br><br>
-          <label>
-            <input type="checkbox" checked="checked" name="rememberme"> Remember me
-          </label><br><br>
-          <button type="button" class="cancelbutton">Cancel</button>
+          <button type="submit"onClick="validateUser(this.Form)" id="loginButton">Login</button><br><br>
         </div>
       </div>
+      
 
-    </form>
     <script>
+          function makeUserObj(){
+                let username = document.getElementById('usernameValue').value
+                let password = document.getElementById('passwordValue').value
+
+              // sends username to localstorage
+              storeLogin(username);
+
+                return {
+                    username,
+                    password,
+                }
+
+            }
+          function validateUser(userObj) {
+            
+                $.ajax({
+                    type: "GET",
+                    url: '/api/verify-user',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    data: userObj,
+                    success: function (msg) {
+                        window.location.href = "/app/feed.html";
+                    },
+                    error: function (e) {
+                        console.log('failure')
+                        console.log(e)
+                    }
+                })
+              
+            }
+            document.getElementById('loginButton').addEventListener('click', (e) => {
+                validateUser(makeUserObj())
+            })
         init()
+        initLogin()
     </script>
   </body>
 </html>
