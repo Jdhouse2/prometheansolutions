@@ -12,6 +12,30 @@ const constants = {
     ]
 }
 
+// Function to Check Local Storage for Authentification
+function checkAuth() {
+    // No authentification
+    if (localstorage.auth == 'undefined') {
+        document.getElementById(logOutButton).style.display = "none";
+        document.getElementById(logInButton).style.display = "block";
+        document.getElementById(addItemButton).style.display = "none";
+        document.getElementById(createAccountButton).style.display = "block";
+        // No not display log out or add items buttons
+    } else {
+        document.getElementById(logOutButton).style.display = "block";
+        document.getElementById(logInButton).style.display = "none";
+        document.getElementById(addItemButton).style.display = "block";
+        document.getElementById(createAccountButton).style.display = "none";
+        // Display log out and add items buttons, hide log in button
+    }
+}
+
+// Function to store login information
+function storeLogin(ownerId)
+{
+    localstorage.auth = ownerId;
+}
+
 function generateFlexbox(){
     let outerBox = document.createElement('div')
         outerBox.classList.add('flex')
@@ -35,6 +59,7 @@ function generateLink(content, href, classListArray){
     return element
 }
 
+// Generates Navigation Bar
 function generateNavigationBar(){
     let navBar = document.getElementById('nav')
         navBar.classList.add('navbar')
@@ -68,4 +93,5 @@ function attachEventHandlers(){
 function init(){
     generateNavigationBar()
     attachEventHandlers()
+    checkAuth();
 }
