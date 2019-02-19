@@ -93,5 +93,5 @@ function attachEventHandlers(){
 function init(){
     generateNavigationBar()
     attachEventHandlers()
-    checkAuth();
+   // checkAuth();
 }

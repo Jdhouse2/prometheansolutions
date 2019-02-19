@@ -80,11 +80,13 @@ app.get('/api/verify-user', function(req, res) {
 
     console.log(req.query)
     let q = req.query
-    let queryString = `SELECT * FROM USER WHERE username = '${q.username}' and password = '${q.password}`
+    console.log(q)
+    let queryString = `SELECT * FROM USER WHERE username = '${q.username}' and password = '${q.password}'`
     console.log(queryString)
     con.query(queryString, function (err, result, fields) {
+
         if (err) throw err;
-        res.send({'success': 'true'})
+        res.send(result)
       });
 });
 

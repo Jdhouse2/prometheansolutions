@@ -5,6 +5,7 @@
     <link rel='stylesheet' href='./css/nav.css' type='text/css'>
     <link rel='stylesheet' href='./css/login.css' type='text/css'>
     <link rel='stylesheet' href='./css/main.css' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <script src='./js/login.js'></script>
     <script src='./js/main.js'></script>
@@ -43,7 +44,7 @@
 
             }
           function validateUser(userObj) {
-            if (loginState.buttonIsActive){
+            
                 $.ajax({
                     type: "GET",
                     url: '/api/verify-user',
@@ -58,7 +59,7 @@
                         console.log(e)
                     }
                 })
-              }
+              
             }
             document.getElementById('loginButton').addEventListener('click', (e) => {
                 validateUser(makeUserObj())
