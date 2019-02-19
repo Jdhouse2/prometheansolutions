@@ -4,7 +4,7 @@ const constants = {
         'About': 'about',
         'Feed': 'feed',
         'Log In': 'EATLogon',
-        'Log Out': 'logout'
+        'Log Out': 'logout',
         'Sign Up': 'signup',
 
     },
