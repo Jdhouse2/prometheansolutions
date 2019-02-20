@@ -16,17 +16,11 @@ const constants = {
 // Function to Check Local Storage for Authentification
 function checkAuth() {
     // No authentification
-    if (localstorage.auth == 'undefined') {
-        document.getElementById(logOutButton).style.display = "none";
-        document.getElementById(logInButton).style.display = "block";
-        document.getElementById(addItemButton).style.display = "none";
-        document.getElementById(createAccountButton).style.display = "block";
+    if (localStorage.getItem('username') == null) {
+        console.log("not signed in");
         // No not display log out or add items buttons
     } else {
-        document.getElementById(logOutButton).style.display = "block";
-        document.getElementById(logInButton).style.display = "none";
-        document.getElementById(addItemButton).style.display = "block";
-        document.getElementById(createAccountButton).style.display = "none";
+        console.log(localStorage.getItem("username") + "is signed in");
         // Display log out and add items buttons, hide log in button
     }
 }
@@ -34,7 +28,7 @@ function checkAuth() {
 // Function to store login information
 function storeLogin(username)
 {
-    localstorage.auth = username;
+    localStorage.setItem("username", username);
 }
 
 function generateFlexbox(){
@@ -94,5 +88,5 @@ function attachEventHandlers(){
 function init(){
     generateNavigationBar()
     attachEventHandlers()
-    // checkAuth();
+    checkAuth();
 }
