@@ -16,20 +16,16 @@ const constants = {
 // Function to Check Local Storage for Authentification
 function checkAuth() {
     // No authentification
-    if (localStorage.getItem('username') == null) {
+    if (localStorage.getItem('ownerid') == null) {
         console.log("not signed in");
         // No not display log out or add items buttons
     } else {
-        console.log(localStorage.getItem("username") + "is signed in");
+        console.log(localStorage.getItem("ownerid") + " is signed in");
         // Display log out and add items buttons, hide log in button
     }
 }
 
-// Function to store login information
-function storeLogin(username)
-{
-    localStorage.setItem("username", username);
-}
+
 
 function generateFlexbox(){
     let outerBox = document.createElement('div')
