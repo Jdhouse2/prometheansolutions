@@ -95,6 +95,7 @@ app.get('/api/verify-user', function(req, res) {
     con.query(queryString, function (err, result, fields) {
 
         if (err) throw err;
+        console.log(result)
         res.send(result)
       });
 });

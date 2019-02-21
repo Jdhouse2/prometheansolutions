@@ -2,6 +2,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Add an Item</title>
+	<script src='./js/main.js'></script>
+	<link rel='stylesheet' href='./css/nav.css' type='text/css'>
+	<link rel='stylesheet' href='./css/main.css' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 	<script>
 		var itemName = "";
 		var description = "";
@@ -40,6 +44,7 @@
 	</script>
 </head>
 <body>
+	<div id='nav'></div>
 	<form id="itemInput">
 		Name:<input id="itemName" type="text"> <br>
 		Description:<input id="description" type="text"> <br>
@@ -57,5 +62,8 @@
 		<button type="button" onClick="addItem(this.Form)">Add</button>
 		<button type="button">Remove</button>
 	</form>
+	<script>
+		init()
+	</script>
 </body>
 </html>
