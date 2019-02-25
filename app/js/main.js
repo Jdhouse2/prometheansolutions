@@ -6,7 +6,8 @@ const constants = {
         'Log In': 'EATLogon',
         'Log Out': 'logout',
         'Sign Up': 'signup',
-        'Add Item': 'AddAnItem'
+        'Add Item': 'AddAnItem',
+        'My Account' : 'myaccount'
     },
     navElementClasses: [
         'nav-item',
@@ -18,10 +19,18 @@ function checkAuth() {
     // No authentification
     if (localStorage.getItem('ownerid') == null) {
         console.log("not signed in");
+        // hide feed, log out, add an item, my account
+        document.querySelectorAll("a[href='feed.html']")[0].style.display = "none";
+        document.querySelectorAll("a[href='logout.html']")[0].style.display = "none";
+        document.querySelectorAll("a[href='AddAnItem.html']")[0].style.display = "none";
+        document.querySelectorAll("a[href='myaccount.html']")[0].style.display = "none";
+
         // No not display log out or add items buttons
     } else {
         console.log(localStorage.getItem("ownerid") + " is signed in");
-        // Display log out and add items buttons, hide log in button
+        // hide irrelevant nav links
+        document.querySelectorAll("a[href='EATLogon.html']")[0].style.display = "none";
+        document.querySelectorAll("a[href='signup.html']")[0].style.display = "none";
     }
 }
 
@@ -66,6 +75,7 @@ function generateNavigationBar(){
         navBar.appendChild(nav)
     }
 }
+
 
 function attachEventHandlers(){
     function _attachRedirectEvents(){
