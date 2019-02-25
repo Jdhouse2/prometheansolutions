@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
     <head>
             <meta charset='UTF-8'>
@@ -14,6 +14,9 @@
     <body>
         <div id='nav'>
 
+        </div>
+        <div id='pageHeading'>
+            <p>Items for Rent</p>
         </div>
         <div class='feedContainer flex flex-row'>
             <div class='leftNavbar'>
@@ -48,7 +51,7 @@
                                 desc: item.item_description,
                                 price: item.day_price,
                                 available: item.available,
-                            }    
+                            }
                         });
                     },
                     error: function (e) {
@@ -63,8 +66,8 @@
                 })
             }
 
-            function determineHref(category){
-                switch(category){
+            function determineHref(category) {
+                switch (category) {
                     case 'toys':
                         return './assets/puzzle.png'
                     case 'Toys':
@@ -82,14 +85,14 @@
                 }
             }
 
-            function rotate(id){
+            function rotate(id) {
                 let targetToRotate = document.getElementById(`${id}`)
                 let targetInnerDetails = document.getElementById(`${id}InnerDetails`)
                 console.log(id)
                 console.log(targetToRotate)
                 let chevron = document.getElementById(`${id}Chevron`)
-                
-                if(targetToRotate.classList.contains('active')){
+
+                if (targetToRotate.classList.contains('active')) {
                     targetToRotate.classList.remove('active')
                     chevron.classList.remove('rotate')
                     targetInnerDetails.classList.add('hidden')
@@ -100,51 +103,51 @@
                 }
             }
 
-            function addToUi(itemObj){
+            function addToUi(itemObj) {
                 let listContainer = document.querySelector('.listContainer')
                 let itemContainer = generateFlexbox()
-                    itemContainer.classList.add('item-container')
-                    itemContainer.id = itemObj.item_id
+                itemContainer.classList.add('item-container')
+                itemContainer.id = itemObj.item_id
                 let imgHref = determineHref(itemObj.item_category)
                 let img = document.createElement('img')
-                    img.src = imgHref
-                    img.id = `${itemObj.item_id}Picture`
-                    img.classList.add('item-img-icon')
+                img.src = imgHref
+                img.id = `${itemObj.item_id}Picture`
+                img.classList.add('item-img-icon')
 
 
                 let picture = generateDiv('', ['item-img'])
-                    picture.appendChild(img)
+                picture.appendChild(img)
 
                 let details = document.createElement('div')
-                    details.classList.add('flex')
-                    details.classList.add('flex-column')
-                    details.classList.add('item-details')
-                    
-                let header = generateFlexbox()
-                    header.innerHTML = itemObj.item_name
-                    header.classList.add('item-header')
-                
-                let innerDetails = generateFlexbox()
-                    innerDetails.classList.add('item-inner-details')
-                    innerDetails.id = `${itemObj.item_id}InnerDetails`
+                details.classList.add('flex')
+                details.classList.add('flex-column')
+                details.classList.add('item-details')
 
-                    innerDetails.classList.add('hidden')
+                let header = generateFlexbox()
+                header.innerHTML = itemObj.item_name
+                header.classList.add('item-header')
+
+                let innerDetails = generateFlexbox()
+                innerDetails.classList.add('item-inner-details')
+                innerDetails.id = `${itemObj.item_id}InnerDetails`
+
+                innerDetails.classList.add('hidden')
 
                 let price = generateFlexbox()
-                    price.classList.add('item-price')
-                    price.classList.add('item-detail-cell')
-                    price.innerHTML = `Price Per Day: $${itemObj.day_price}`
-                
+                price.classList.add('item-price')
+                price.classList.add('item-detail-cell')
+                price.innerHTML = `Price Per Day: $${itemObj.day_price}`
+
                 let zip = generateFlexbox()
-                    zip.classList.add('item-zip')
-                    zip.classList.add('item-detail-cell')
-                    zip.innerHTML = `Zipcode: ${itemObj.item_zipcode}`
-                
+                zip.classList.add('item-zip')
+                zip.classList.add('item-detail-cell')
+                zip.innerHTML = `Zipcode: ${itemObj.item_zipcode}`
+
                 let description = generateFlexbox()
-                    description.classList.add('item-desc')
-                    description.innerHTML = `${itemObj.item_description}`
-                    description.classList.add('item-detail-cell')
-                
+                description.classList.add('item-desc')
+                description.innerHTML = `${itemObj.item_description}`
+                description.classList.add('item-detail-cell')
+
                 details.appendChild(header)
 
                 innerDetails.appendChild(price)
@@ -152,12 +155,12 @@
                 innerDetails.appendChild(description)
 
                 details.appendChild(innerDetails)
-                
-                
-                
+
+
+
                 let dropdownIcon = document.createElement('div');
-                    dropdownIcon.classList.add('dropdown-icon')
-                    dropdownIcon.id = `${itemObj.item_id}Chevron`
+                dropdownIcon.classList.add('dropdown-icon')
+                dropdownIcon.id = `${itemObj.item_id}Chevron`
 
                 itemContainer.appendChild(picture)
                 itemContainer.appendChild(details)
@@ -167,14 +170,14 @@
                 dropdownIcon.addEventListener('click', (e) => {
                     let targetId = e.target.id.split('C', 1)[0]
 
-                    if(feedState.activeId === targetId){
+                    if (feedState.activeId === targetId) {
                         rotate(targetId)
                         feedState.activeId = null
                     } else if (feedState.activeId !== targetId && feedState.activeId !== null) {
                         rotate(feedState.activeId)
                         rotate(targetId)
                         feedState.activeId = targetId
-                    } else if (feedState.activeId === null){
+                    } else if (feedState.activeId === null) {
                         rotate(targetId)
                         feedState.activeId = targetId
                     }
@@ -183,21 +186,21 @@
                 img.addEventListener('click', (e) => {
                     let targetId = e.target.id.split('P', 1)[0]
 
-                    if(feedState.activeId === targetId){
+                    if (feedState.activeId === targetId) {
                         rotate(targetId)
                         feedState.activeId = null
                     } else if (feedState.activeId !== targetId && feedState.activeId !== null) {
                         rotate(feedState.activeId)
                         rotate(targetId)
                         feedState.activeId = targetId
-                    } else if (feedState.activeId === null){
+                    } else if (feedState.activeId === null) {
                         rotate(targetId)
                         feedState.activeId = targetId
                     }
                 })
 
             }
-            
+
             function initFeed() {
                 getItems()
             }
