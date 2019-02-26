@@ -17,7 +17,8 @@
 			description = document.getElementById("description").value;
 			zipCode = document.getElementById("zipCode").value;
             category = document.getElementById("category");
-			var catValue = category.options[category.selectedIndex].text;
+            var catValue = category.options[category.selectedIndex].text;
+            var ownerid = localStorage.getItem("ownerid");
 
 			$.ajax({
     type: "GET",
@@ -25,7 +26,7 @@
     contentType: "application/json; charset=utf-8",
     dataType: "json",
     data: {
-    	itemName, description, zipCode, catValue
+    	itemName, description, zipCode, catValue, ownerid
     },
     success: function (msg) {
         console.log('success')

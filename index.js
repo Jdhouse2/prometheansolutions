@@ -76,6 +76,14 @@ app.get('/api/get-items', function(req, res) {
       });
 });
 
+// For getting items in "my account"
+app.get('/api/get-user-items', function (req, res) {
+    con.query('select * from item', function (err, result, fields) {
+        if (err) throw err;
+        res.send(result)
+    });
+});
+
 
 app.get('/app/addAnItem', function(req, res) {
     con.query('select item_name, item_category, item_zipcode, item_description from item', function (err, result, fields) {
