@@ -20,22 +20,10 @@
         </div>
         <div class='feedContainer flex flex-row'>
             <div class='leftNavbar'>
-                <input type="text" id="search" placeholder="Search">
-                <select id='category'>
-                    <option value="category">Category Filter</option>
-                    <option value="toys">Toys</option>
-                    <option value="Cooking">Cooking</option>
-                    <option value="Electronics">Electronics</option>
-                    <option value="Home Improvement">Home Improvement</option>
-                    <option value="Sports">Sports</option>
-                    <option value="Gardening">Gardening</option>
-                </select>
-                <input type='number' id='zipCode' placeholder='Zip Code'/>
+
             </div>
             <div class='listContainer'>
-                <div id='noItems' class='hidden'>
-                    Woops! There are no items :(
-                </div>
+
             </div>
 
         </div>
@@ -65,8 +53,6 @@
                                 available: item.available,
                             }
                         });
-
-                        console.log(feedState)
                     },
                     error: function (e) {
                         console.log('failure')
@@ -215,113 +201,8 @@
 
             }
 
-<<<<<<< HEAD
-=======
-            function attachSearchfilter(){
-                document.getElementById('search').addEventListener('keyup', (e) => {
-                    let item = e.target.value
-                    let showingSomethingFlag = false
-
-                    feedState.items.forEach((item) => {
-                        let row = document.getElementById(`${item.item_id}`)
-                        let itemName = `${item.item_name}`
-
-                        if (!itemName.includes(item)) {
-                            if (!row.classList.contains('zHidden')) {
-                                row.classList.add('zHidden')
-                            }
-                        } else {
-                            showingSomethingFlag = true
-                            if (row.classList.contains('zHidden')) {
-                                row.classList.remove('zHidden')
-                            }
-                        }
-                    })
-
-                    if(!showingSomethingFlag){
-                        if(document.getElementById('noItems').classList.contains('hidden')){
-                            document.getElementById('noItems').classList.remove('hidden')
-                        }
-                    } else {
-                        if(!document.getElementById('noItems').classList.contains('hidden')){
-                            document.getElementById('noItems').classList.add('hidden')
-                        }
-                    }
-                })
-            }
-
-            function attachZipFilterEvent(){
-                document.getElementById('zipCode').addEventListener('keyup', (e) => {
-                    let zip = e.target.value
-                    let showingSomethingFlag = false
-
-                    feedState.items.forEach((item) => {
-                        let row = document.getElementById(`${item.item_id}`)
-                        let zipcode = `${item.item_zipcode}`
-
-                        if (!zipcode.includes(zip)) {
-                            if (!row.classList.contains('zHidden')) {
-                                row.classList.add('zHidden')
-                            }
-                        } else {
-                            showingSomethingFlag = true
-                            if (row.classList.contains('zHidden')) {
-                                row.classList.remove('zHidden')
-                            }
-                        }
-                    })
-
-                    if(!showingSomethingFlag){
-                        if(document.getElementById('noItems').classList.contains('hidden')){
-                            document.getElementById('noItems').classList.remove('hidden')
-                        }
-                    } else {
-                        if(!document.getElementById('noItems').classList.contains('hidden')){
-                            document.getElementById('noItems').classList.add('hidden')
-                        }
-                    }
-                })
-            }
-
-            function attachCategoryFilterEvent(){
-
-                document.getElementById('category').addEventListener('change', (e) => {
-                    let category = e.target.value
-                    let showingSomethingFlag = false
-                    
-                    feedState.items.forEach((item) => {
-                        let row = document.getElementById(`${item.item_id}`)
-                        let rowCategory = item.item_category
-
-                        if (category !== rowCategory && category !== 'category') {
-                            if (!row.classList.contains('ctgHidden')) {
-                                row.classList.add('ctgHidden')
-                            }
-                        } else if(category === rowCategory || category === 'category') {
-                            showingSomethingFlag = true
-                            if (row.classList.contains('ctgHidden')) {
-                                row.classList.remove('ctgHidden')
-                            }
-                        } 
-                    })
-
-                    if(!showingSomethingFlag){
-                        if(document.getElementById('noItems').classList.contains('hidden')){
-                            document.getElementById('noItems').classList.remove('hidden')
-                        }
-                    } else {
-                        if(!document.getElementById('noItems').classList.contains('hidden')){
-                            document.getElementById('noItems').classList.add('hidden')
-                        }
-                    }
-                })
-            }
-
->>>>>>> b431e1c5b8bf90e2f4246c1dd376008082a082dc
             function initFeed() {
                 getItems()
-                attachZipFilterEvent()
-                attachCategoryFilterEvent()
             }
 
             init()
