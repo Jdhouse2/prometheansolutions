@@ -210,3 +210,16 @@
 .label{
     font-weight: bold;
 }
+input{
+    padding: 2px;
+}
+    input:required:valid {
+        border: 2px solid green;
+        transition: .5s;
+    }
+input:required:invalid {
+    border: 2px solid red;
+}
+input:focus {
+    outline: none;
+}

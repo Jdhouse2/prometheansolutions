@@ -23,8 +23,8 @@
             Name: <input id="itemName" type="text" required> <br>
             Description: <input id="description" type="text" required> <br>
             ZipCode: <input id="zipCode" type="text" required> <br>
-            Price Per Day: <input id="price" type="number"> <br>
-            Item Category: <select name="Categories" id="category">
+            Price Per Day: <input id="price" type="number" required> <br>
+            Item Category: <select name="Categories" id="category" required>
                 <option value="Garden">Garden</option>
                 <option value="Cooking">Cooking</option>
                 <option value="Home Improvement">Home Improvement</option>
@@ -34,7 +34,7 @@
                 <option value="Media/Entertainment">Media/Entertainment</option>
                 <option value="Books">Books</option>
             </select> <br>
-            <button id="addButton" type="button">Add</button>
+            <button id="addButton" type="button" onclick="createItem(generateItemObj())">Add</button>
             <button type="reset">Clear</button>
         </form>
     </div>
@@ -113,9 +113,9 @@
             //}
         init();
         // button event listener
-        document.getElementById('addButton').addEventListener('click', (e) => {
-            createItem(generateItemObj());
-        })
+        //document.getElementById('addButton').addEventListener('click', (e) => {
+        //    createItem(generateItemObj());
+        //})
     </script>
 </body>
 </html>
