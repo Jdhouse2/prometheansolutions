@@ -48,12 +48,32 @@ app.get('/app/test-pull', function(req, res) {
       });
 });
 
+app.get('/app/updaterent', function (req, res) {
+    let q = req.query;
+    let queryString = `UPDATE item SET renter_id = ${q.rentid}, availability = 0 WHERE item = ${q.itemid}`;
+    console.log(queryString);
+    con.query(queryString, function (err, result, fields) {
+        if (err) throw err;
+        res.send({ 'success': 'true' })
+    });
+});
+
 app.post('/api/clear', function(req, res) {
 
     con.query(`DELETE FROM user`, function (err, result, fields) {
         if (err) throw err;
         res.send({'success': 'true'})
       });
+});
+
+app.post('/api/deleteitem', function (req, res) {
+    let q = req.query
+    let queryString = `DELETE FROM item WHERE item_id = ${q.id}`;
+    console.log(queryString);
+    con.query(queryString, function (err, result, fields) {
+        if (err) throw err;
+        res.send({ 'success': 'true' })
+    });
 });
 
 app.get('/api/testitempush', function (req, res) {
