@@ -199,7 +199,13 @@
     padding: 3px;
 }
 
-#accountInfo {
+#search {
+    width: 80%;
+    padding: 2.5% 10%;
+    margin: 10%;
+    border: 1px solid grey;
+}
+    #accountInfo {
     font-family: 'Raleway', sans-serif;
     margin: auto;
     text-align: center;

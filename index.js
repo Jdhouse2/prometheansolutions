@@ -48,9 +48,9 @@ app.get('/app/test-pull', function(req, res) {
       });
 });
 
-app.get('/app/updaterent', function (req, res) {
+app.get('/api/updaterent', function (req, res) {
     let q = req.query;
-    let queryString = `UPDATE item SET renter_id = ${q.rentid}, availability = 0 WHERE item = ${q.itemid}`;
+    let queryString = `UPDATE item SET renter_id = NULL, available = 1 WHERE item_id = ${q.itemid}`;
     console.log(queryString);
     con.query(queryString, function (err, result, fields) {
         if (err) throw err;
