@@ -76,13 +76,7 @@ app.get('/api/get-items', function(req, res) {
       });
 });
 
-// For getting items in "my account"
-app.get('/api/get-user-items', function (req, res) {
-    con.query('select * from item', function (err, result, fields) {
-        if (err) throw err;
-        res.send(result)
-    });
-});
+
 
 
 app.get('/app/addAnItem', function(req, res) {
@@ -90,6 +84,18 @@ app.get('/app/addAnItem', function(req, res) {
         if (err) throw err;
         res.send(JSON.stringify(result))
 
+    });
+});
+
+
+app.get('/api/getuserinfo', function (req, res) {
+
+    //let queryString = `SELECT * FROM USER WHERE id = ` + localStorage.getItem("ownerid");
+    let queryString = `SELECT * FROM USER`
+    console.log(queryString)
+    con.query(queryString, function (err, result, fields) {
+        if (err) throw err;
+        res.send(result)
     });
 });
 

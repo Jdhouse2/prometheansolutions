@@ -54,23 +54,25 @@
     <div id='pageHeading'>
         <p>Add an Item for Rent</p>
     </div>
-    <form id="itemInput">
-        Name:<input id="itemName" type="text"> <br>
-        Description:<input id="description" type="text"> <br>
-        ZipCode:<input id="zipCode" type="text"> <br>
-        Item Category:<select name="Categories" id="category">
-            <option value="Garden">Garden</option>
-            <option value="Cooking">Cooking</option>
-            <option value="Home Improvement">Home Improvement</option>
-            <option value="Sports">Sports</option>
-            <option value="Toys">Toys</option>
-            <option value="Electronics">Electronics</option>
-            <option value="Media/Entertainment">Media/Entertainment</option>
-            <option value="Books">Books</option>
-        </select> <br>
-        <button type="button" onClick="addItem(this.Form)">Add</button>
-        <button type="button">Remove</button>
-    </form>
+    <div id="inputDiv">
+        <form id="itemInput">
+            Name: <input id="itemName" type="text"> <br>
+            Description: <input id="description" type="text"> <br>
+            ZipCode: <input id="zipCode" type="text"> <br>
+            Item Category: <select name="Categories" id="category">
+                <option value="Garden">Garden</option>
+                <option value="Cooking">Cooking</option>
+                <option value="Home Improvement">Home Improvement</option>
+                <option value="Sports">Sports</option>
+                <option value="Toys">Toys</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Media/Entertainment">Media/Entertainment</option>
+                <option value="Books">Books</option>
+            </select> <br>
+            <button type="button" onClick="addItem(this.Form)">Add</button>
+            <button type="button">Remove</button>
+        </form>
+    </div>
     <script>
         init();
     </script>
