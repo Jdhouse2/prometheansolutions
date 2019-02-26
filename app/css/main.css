@@ -93,6 +93,8 @@
     border: 1.5px solid rgba(0, 0, 204, 0.7);
     flex: 1 0 auto;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .listContainer {
@@ -168,10 +170,11 @@
     padding: 10px;
 }
 
-.hidden {
+.hidden, .zHidden, .ctgHidden {
     display: none;
 }
 
+<<<<<<< HEAD
 #pageHeading {
     height: 10vh;
     padding: 5px;
@@ -183,4 +186,32 @@
     font-size: 4vh;
     text-align: center;
     font-family: 'Raleway', sans-serif;
+=======
+#category {
+    width: 80%;
+    padding: 2.5% 10%;
+    margin: 10%;
+    border-bottom: 1px solid grey;
+}
+
+#zipCode {
+    width: 80%;
+    padding: 2.5% 10%;
+    margin: 10%;
+    border: 1px solid grey;
+}
+
+#search {
+    width: 80%;
+    padding: 2.5% 10%;
+    margin: 10%;
+    border: 1px solid grey;
+}
+
+#noItems {
+    font-size: 2em;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+>>>>>>> b431e1c5b8bf90e2f4246c1dd376008082a082dc
 }

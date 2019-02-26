@@ -1,5 +1,6 @@
 ﻿<html>
 <head>
+<<<<<<< HEAD
     <meta charset='UTF-8'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add An Item</title>
@@ -14,6 +15,19 @@
         var description = "";
         var zipCode = 0;
         var category = "";
+=======
+	<meta charset="UTF-8">
+	<title>Add an Item</title>
+	<script src='./js/main.js'></script>
+	<link rel='stylesheet' href='./css/nav.css' type='text/css'>
+	<link rel='stylesheet' href='./css/main.css' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<script>
+		var itemName = "";
+		var description = "";
+		var zipCode = 0;
+		var category = "";
+>>>>>>> b431e1c5b8bf90e2f4246c1dd376008082a082dc
 
         function addItem(form) {
             itemName = document.getElementById("itemName").value;
@@ -48,6 +62,7 @@
     </script>
 </head>
 <body>
+<<<<<<< HEAD
     <div id='nav'>
 
     </div>
@@ -74,5 +89,28 @@
     <script>
         init();
     </script>
+=======
+	<div id='nav'></div>
+	<form id="itemInput">
+		Name:<input id="itemName" type="text"> <br>
+		Description:<input id="description" type="text"> <br>
+		ZipCode:<input id="zipCode" type="text"> <br>
+		Item Category:<select name="Categories" id="category">
+			<option value="Garden">Garden</option>
+			<option value="Cooking">Cooking</option>
+			<option value="Home Improvement">Home Improvement</option>
+			<option value="Sports">Sports</option>
+			<option value="Toys">Toys</option>
+			<option value="Electronics">Electronics</option>
+			<option value="Media/Entertainment">Media/Entertainment</option>
+			<option value="Books">Books</option>
+		</select> <br>
+		<button type="button" onClick="addItem(this.Form)">Add</button>
+		<button type="button">Remove</button>
+	</form>
+	<script>
+		init()
+	</script>
+>>>>>>> b431e1c5b8bf90e2f4246c1dd376008082a082dc
 </body>
 </html>
