@@ -80,7 +80,33 @@
                     })
                 })
             }
+            function makeItemObj() {
+                let item_id = document.getElementById('item_id').value
+                let renter_id = localStorage.getItem('ownerid')
 
+                return {
+                    item_id,
+                    renter_id,
+                }
+
+            }
+
+            function checkout(itemObj) {
+                $.ajax({
+                    type: "GET",
+                    url: '/api/checkout-item',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    data: itemObj,
+                    success: function (msg) {
+                        window.location.href = "/app/feed.html";
+                    },
+                    error: function (e) {
+                        console.log('failure')
+                        console.log(e)
+                    }
+                })
+            }
             function determineHref(category) {
                 switch (category) {
                     case 'toys':
@@ -168,10 +194,18 @@
                 innerDetails.appendChild(price)
                 innerDetails.appendChild(zip)
                 innerDetails.appendChild(description)
+                
 
                 details.appendChild(innerDetails)
 
+                let checkoutButton = document.createElement('div');
+                checkoutButton.classList.add('item-button')
+                checkoutButton.innerHTML = '<u><b>Checkout'
+                checkoutButton.id = `${itemObj.item_id}CheckoutButton`
+                console.log(checkoutButton.id)
+                checkoutButton.classList.add('item-detail-cell')
 
+                innerDetails.appendChild(checkoutButton)
 
                 let dropdownIcon = document.createElement('div');
                 dropdownIcon.classList.add('dropdown-icon')
@@ -221,18 +255,18 @@
                     let item = e.target.value
                     let showingSomethingFlag = false
 
-                    feedState.items.forEach((item) => {
-                        let row = document.getElementById(`${item.item_id}`)
-                        let itemName = `${item.item_name}`
+                    feedState.items.forEach((specificItem) => {
+                        let row = document.getElementById(`${specificItem.item_id}`)
+                        let itemName = `${specificItem.item_name}`
 
                         if (!itemName.includes(item)) {
-                            if (!row.classList.contains('zHidden')) {
-                                row.classList.add('zHidden')
+                            if (!row.classList.contains('sHidden')) {
+                                row.classList.add('sHidden')
                             }
                         } else {
                             showingSomethingFlag = true
-                            if (row.classList.contains('zHidden')) {
-                                row.classList.remove('zHidden')
+                            if (row.classList.contains('sHidden')) {
+                                row.classList.remove('sHidden')
                             }
                         }
                     })
@@ -258,6 +292,9 @@
                         let row = document.getElementById(`${item.item_id}`)
                         let zipcode = `${item.item_zipcode}`
 
+                        checkoutButton.addEventListener('click', (e) => {
+                            checkout(makeItemObj())
+                        })
                         if (!zipcode.includes(zip)) {
                             if (!row.classList.contains('zHidden')) {
                                 row.classList.add('zHidden')
@@ -320,6 +357,7 @@
                 getItems()
                 attachZipFilterEvent()
                 attachCategoryFilterEvent()
+                attachSearchfilter()
             }
 
             init()

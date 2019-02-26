@@ -109,6 +109,19 @@ app.get('/api/get-items', function(req, res) {
 });
 
 
+app.get('/api/checkout-item', function (req, res) {
+
+    console.log(req.query)
+    let q = req.query
+    console.log(q)
+    let queryString = `UPDATE ITEM SET available = 0, renter_id = '${q.renter_id}' WHERE item_id = '${q.item_id}'`
+    console.log(queryString)
+    con.query(queryString, function (err, result, fields) {
+
+        if (err) throw err;
+        res.send(result)
+    });
+});
 
 
 app.get('/app/addAnItem', function(req, res) {

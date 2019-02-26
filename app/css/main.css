@@ -170,7 +170,7 @@
     padding: 10px;
 }
 
-.hidden, .zHidden, .ctgHidden {
+.hidden, .zHidden, .ctgHidden, .sHidden {
     display: none;
 }
 
@@ -207,7 +207,9 @@
     border-bottom: 1px solid grey;
 }
 
-
+.item-button {
+    cursor: pointer;
+}
 
 #zipCode {
     width: 80%;
@@ -278,3 +280,4 @@ input:focus {
     text-align: center;
 
 }
+
