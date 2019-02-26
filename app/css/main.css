@@ -188,6 +188,13 @@
     border: 1px solid grey;
 }
 
+#search {
+    width: 80%;
+    padding: 2.5% 10%;
+    margin: 10%;
+    border: 1px solid grey;
+}
+
 #noItems {
     font-size: 2em;
     padding: 10px;
