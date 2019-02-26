@@ -258,7 +258,7 @@
                             if (!row.classList.contains('ctgHidden')) {
                                 row.classList.add('ctgHidden')
                             }
-                        } else if(category !== rowCategory || category === 'category') {
+                        } else if(category === rowCategory || category === 'category') {
                             showingSomethingFlag = true
                             if (row.classList.contains('ctgHidden')) {
                                 row.classList.remove('ctgHidden')

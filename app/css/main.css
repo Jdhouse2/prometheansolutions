@@ -187,3 +187,10 @@
     margin: 10%;
     border: 1px solid grey;
 }
+
+#noItems {
+    font-size: 2em;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
