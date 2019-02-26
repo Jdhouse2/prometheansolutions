@@ -203,9 +203,11 @@
     font-family: 'Raleway', sans-serif;
     margin: auto;
     text-align: center;
+    border-bottom: solid 5px lightblue;
 }
 #accountInfo p{
     margin: 2px;
+    font-size: 20px;
 }
 .label{
     font-weight: bold;
@@ -222,4 +224,27 @@ input:required:invalid {
 }
 input:focus {
     outline: none;
+}
+
+.itemTable {
+    margin: auto;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    margin-top: 20px;
+
+}
+.itemTable td {
+    border-bottom: solid 1px black;
+    box-sizing: border-box;
+    width: 15vw;
+}
+.itemTable th{
+    margin-top: 10px;
+}
+.aboutParagraph {
+    width: 70vw;
+    margin: auto;
+    margin-top: 20px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
 }
