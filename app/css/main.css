@@ -198,3 +198,15 @@
     margin: 5px;
     padding: 3px;
 }
+
+#accountInfo {
+    font-family: 'Raleway', sans-serif;
+    margin: auto;
+    text-align: center;
+}
+#accountInfo p{
+    margin: 2px;
+}
+.label{
+    font-weight: bold;
+}

@@ -56,6 +56,18 @@ app.post('/api/clear', function(req, res) {
       });
 });
 
+app.get('/api/testitempush', function (req, res) {
+
+    console.log(req.query)
+    let q = req.query
+    let queryString = `INSERT INTO item (item_name, item_category, item_zipcode, item_description, owner_id, available, day_price) VALUES ("${q.itemName}", "${q.itemCat}", ${q.itemZip}, "${q.itemDesc}", ${q.id}, 1, ${q.price})`
+    console.log(queryString)
+    con.query(queryString, function (err, result, fields) {
+        if (err) throw err;
+        res.send({ 'success': 'true' })
+    });
+});
+
 app.get('/api/create-user', function(req, res) {
 
     console.log(req.query)
@@ -90,7 +102,7 @@ app.get('/app/addAnItem', function(req, res) {
 
 app.get('/api/getuserinfo', function (req, res) {
 
-    //let queryString = `SELECT * FROM USER WHERE id = ` + localStorage.getItem("ownerid");
+   
     let queryString = `SELECT * FROM USER`
     console.log(queryString)
     con.query(queryString, function (err, result, fields) {
